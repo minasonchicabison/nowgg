@@ -1,0 +1,106 @@
+@namespace xhtml url("http://www.w3.org/1999/xhtml");
+
+* { box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #080b12;
+  color: #e9eef8;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(ellipse at 50% -25%, rgba(61, 94, 157, .18), transparent 48%), #080b12;
+}
+
+.toolbar {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 9px 14px;
+  background: rgba(13, 18, 29, .96);
+  border-bottom: 1px solid rgba(148, 163, 184, .15);
+  z-index: 2;
+}
+
+.brand, .actions { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand-mark {
+  width: 28px; height: 28px; display: grid; place-items: center;
+  border-radius: 8px; background: linear-gradient(135deg, #5d8cff, #7c5cff);
+  color: white; font-weight: 800; font-size: 15px;
+}
+.brand-name { font-size: 14px; font-weight: 750; letter-spacing: .2px; }
+.status {
+  max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  margin-left: 5px; color: #8793a8; font-size: 11px;
+}
+.tool-button, .apply-button, .dismiss-button {
+  appearance: none; border: 1px solid rgba(148, 163, 184, .2); border-radius: 8px;
+  background: #151d2b; color: #dce5f4; font: inherit; font-size: 12px;
+  font-weight: 650; line-height: 1; padding: 10px 12px; text-decoration: none;
+  cursor: pointer; white-space: nowrap;
+}
+.tool-button:hover, .apply-button:hover { background: #202b3d; border-color: rgba(148, 163, 184, .38); }
+.tool-button.primary, .apply-button { background: #386ce8; border-color: #386ce8; color: #fff; }
+.tool-button.primary:hover, .apply-button:hover { background: #4a7cf5; }
+
+.settings-panel {
+  padding: 12px 16px 10px;
+  background: #101725;
+  border-bottom: 1px solid rgba(148, 163, 184, .14);
+}
+.url-form { display: flex; align-items: center; gap: 10px; }
+.url-form label { color: #aebbd0; font-size: 12px; font-weight: 650; white-space: nowrap; }
+.url-form input {
+  min-width: 0; flex: 1; border: 1px solid #2b374b; border-radius: 8px;
+  background: #080e18; color: #eef4ff; padding: 10px 12px; font: inherit; font-size: 12px;
+  outline: none;
+}
+.url-form input:focus { border-color: #6791ff; box-shadow: 0 0 0 3px rgba(74, 124, 245, .15); }
+.settings-help { margin: 8px 0 0; color: #8694aa; font-size: 11px; }
+.settings-help code { color: #c7d5f0; background: #1b2638; padding: 2px 5px; border-radius: 4px; }
+
+.stage { position: relative; flex: 1 1 auto; min-height: 0; background: #000; }
+#gameFrame { width: 100%; height: 100%; display: block; border: 0; background: #000; }
+.help-notice {
+  position: absolute; left: 14px; right: 14px; bottom: 14px;
+  display: flex; align-items: center; gap: 14px; padding: 12px 14px;
+  border: 1px solid rgba(245, 184, 76, .36); border-radius: 11px;
+  background: rgba(25, 24, 22, .96); box-shadow: 0 12px 40px rgba(0, 0, 0, .35);
+}
+.help-notice[hidden], .settings-panel[hidden] { display: none !important; }
+.notice-copy { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0; }
+.notice-copy strong { font-size: 12px; color: #ffe0a4; }
+.notice-copy span { color: #c1c5ce; font-size: 11px; line-height: 1.45; }
+.help-notice a { color: #fff; background: #8b5a17; border-radius: 7px; padding: 9px 11px; text-decoration: none; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.dismiss-button { padding: 6px 9px; background: transparent; border-color: transparent; color: #c1c5ce; font-size: 18px; }
+.footer {
+  min-height: 27px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 5px 13px; background: #0d121d; color: #63718a; font-size: 10px;
+  border-top: 1px solid rgba(148, 163, 184, .1);
+}
+
+@media (max-width: 720px) {
+  .toolbar { align-items: flex-start; flex-direction: column; padding: 9px 10px; gap: 9px; }
+  .brand { width: 100%; }
+  .status { margin-left: auto; max-width: 52%; text-align: right; }
+  .actions { width: 100%; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+  .tool-button { text-align: center; padding: 10px 5px; font-size: 11px; }
+  .url-form { align-items: stretch; flex-wrap: wrap; }
+  .url-form label { width: 100%; }
+  .url-form input { flex-basis: 100%; }
+  .help-notice { left: 8px; right: 8px; bottom: 8px; flex-wrap: wrap; gap: 9px; }
+  .notice-copy { flex-basis: calc(100% - 28px); }
+  .help-notice a { margin-left: auto; }
+  .footer { font-size: 9px; }
+}

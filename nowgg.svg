@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="./style.css" type="text/css"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xhtml="http://www.w3.org/1999/xhtml"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="100%" height="100%" viewBox="0 0 1440 900"
+     preserveAspectRatio="none" role="img" aria-labelledby="svgTitle svgDesc">
+  <title id="svgTitle">now.gg fullscreen embed shell</title>
+  <desc id="svgDesc">A dark fullscreen wrapper with an embedded now.gg frame and fallback controls.</desc>
+  <rect x="0" y="0" width="1440" height="900" fill="#080b12" />
+
+  <foreignObject x="0" y="0" width="100%" height="100%">
+    <xhtml:html>
+      <xhtml:head>
+        <xhtml:meta charset="UTF-8" />
+        <xhtml:meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <xhtml:title>now.gg</xhtml:title>
+      </xhtml:head>
+      <xhtml:body>
+        <xhtml:main id="app" class="app">
+          <xhtml:header class="toolbar">
+            <xhtml:div class="brand">
+              <xhtml:span class="brand-mark" aria-hidden="true">N</xhtml:span>
+              <xhtml:span class="brand-name">now.gg</xhtml:span>
+              <xhtml:span id="status" class="status">Starting player…</xhtml:span>
+            </xhtml:div>
+            <xhtml:nav class="actions" aria-label="Player controls">
+              <xhtml:button id="settingsButton" class="tool-button" type="button" aria-expanded="false">URL</xhtml:button>
+              <xhtml:button id="reloadButton" class="tool-button" type="button">Reload</xhtml:button>
+              <xhtml:button id="fullscreenButton" class="tool-button" type="button">Fullscreen</xhtml:button>
+              <xhtml:a id="openButton" class="tool-button primary" href="https://now.gg/" target="_blank" rel="noopener noreferrer">Open in new tab ↗</xhtml:a>
+            </xhtml:nav>
+          </xhtml:header>
+
+          <xhtml:section id="settingsPanel" class="settings-panel" hidden="hidden">
+            <xhtml:form id="urlForm" class="url-form">
+              <xhtml:label for="urlInput">Embed URL</xhtml:label>
+              <xhtml:input id="urlInput" name="url" type="url" inputmode="url" autocomplete="url" spellcheck="false" placeholder="https://now.gg/ or your proxy URL" />
+              <xhtml:button class="apply-button" type="submit">Apply</xhtml:button>
+            </xhtml:form>
+            <xhtml:p class="settings-help">You can also set <xhtml:code>?url=ENCODED_URL</xhtml:code> on this SVG URL, or edit <xhtml:code>DEFAULT_EMBED_URL</xhtml:code> in <xhtml:code>script.js</xhtml:code>.</xhtml:p>
+          </xhtml:section>
+
+          <xhtml:section id="stage" class="stage" aria-label="Embedded player">
+            <xhtml:iframe id="gameFrame"
+              title="now.gg player"
+              src="about:blank"
+              allow="fullscreen; autoplay; gamepad; microphone; clipboard-write"
+              allowfullscreen="allowfullscreen"
+              sandbox="allow-scripts allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox"
+              referrerpolicy="strict-origin-when-cross-origin"></xhtml:iframe>
+
+            <xhtml:aside id="helpNotice" class="help-notice" role="status" hidden="hidden">
+              <xhtml:div class="notice-copy">
+                <xhtml:strong>Is the player blank?</xhtml:strong>
+                <xhtml:span>now.gg or your browser may be refusing the frame. This page cannot inspect the cross-origin frame to confirm why.</xhtml:span>
+              </xhtml:div>
+              <xhtml:a id="noticeOpenButton" href="https://now.gg/" target="_blank" rel="noopener noreferrer">Open now.gg ↗</xhtml:a>
+              <xhtml:button id="dismissNotice" class="dismiss-button" type="button" aria-label="Dismiss notice">×</xhtml:button>
+            </xhtml:aside>
+          </xhtml:section>
+
+          <xhtml:footer class="footer">
+            <xhtml:span>Standalone SVG · fullscreen-friendly</xhtml:span>
+            <xhtml:span>Embedding depends on now.gg and browser policies.</xhtml:span>
+          </xhtml:footer>
+        </xhtml:main>
+      </xhtml:body>
+    </xhtml:html>
+  </foreignObject>
+
+  <script type="application/ecmascript" href="./script.js" xlink:href="./script.js"></script>
+</svg>
